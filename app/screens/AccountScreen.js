@@ -4,7 +4,7 @@ import { StyleSheet, View, FlatList } from "react-native";
 import { ListItem, ListItemSeparator } from "../components/lists";
 import colors from "../config/colors";
 import Icon from "../components/Icon";
-import routes from "../components/navigation/routes";
+import routes from "../navigation/routes";
 import Screen from "../components/Screen";
 
 const menuItems = [
@@ -30,9 +30,9 @@ function AccountScreen({ navigation }) {
     <Screen style={styles.screen}>
       <View style={styles.container}>
         <ListItem
-          title="Tuan Phan"
-          subTitle="anhtuan.ph235@gmail.com"
-          image={require("../assets/tuan.jpeg")}
+          title="Mosh Hamedani"
+          subTitle="programmingwithmosh@gmail.com"
+          image={require("../assets/mosh.jpg")}
         />
       </View>
       <View style={styles.container}>

@@ -3,10 +3,10 @@ import { View, StyleSheet, Image, TouchableHighlight } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import Swipeable from "react-native-gesture-handler/Swipeable";
 
-import AppText from "../Text";
+import Text from "../Text";
 import colors from "../../config/colors";
 
-export default function ListItem({
+function ListItem({
   title,
   subTitle,
   image,
@@ -20,14 +20,14 @@ export default function ListItem({
         <View style={styles.container}>
           {IconComponent}
           {image && <Image style={styles.image} source={image} />}
-          <View style={styles.detailContainer}>
-            <AppText style={styles.title} numberOfLine={1}>
+          <View style={styles.detailsContainer}>
+            <Text style={styles.title} numberOfLines={1}>
               {title}
-            </AppText>
+            </Text>
             {subTitle && (
-              <AppText style={styles.subTitle} numberOfLine={2}>
+              <Text style={styles.subTitle} numberOfLines={2}>
                 {subTitle}
-              </AppText>
+              </Text>
             )}
           </View>
           <MaterialCommunityIcons
@@ -48,20 +48,22 @@ const styles = StyleSheet.create({
     padding: 15,
     backgroundColor: colors.white,
   },
+  detailsContainer: {
+    flex: 1,
+    marginLeft: 10,
+    justifyContent: "center",
+  },
   image: {
     width: 70,
     height: 70,
     borderRadius: 35,
   },
-  title: {
-    fontWeight: "500",
-  },
   subTitle: {
     color: colors.medium,
   },
-  detailContainer: {
-    flex: 1,
-    marginLeft: 10,
-    justifyContent: "center",
+  title: {
+    fontWeight: "500",
   },
 });
+
+export default ListItem;

@@ -1,27 +1,30 @@
 import React from "react";
 import { useFormikContext } from "formik";
 
-import AppTextInput from "../TextInput";
+import TextInput from "../TextInput";
 import ErrorMessage from "./ErrorMessage";
 
-export default function AppFormField({ name, width, ...otherProps }) {
-  const { setFieldTouched, handleChange, errors, touched } = useFormikContext();
+function AppFormField({ name, width, ...otherProps }) {
+  const {
+    setFieldTouched,
+    setFieldValue,
+    errors,
+    touched,
+    values,
+  } = useFormikContext();
 
   return (
     <>
-      <AppTextInput
-        // autoCapitalize="none"
-        // autoCorrect={false}
-        // icon="email"
-        // keyboardType="email-address"
+      <TextInput
         onBlur={() => setFieldTouched(name)}
-        onChangeText={handleChange(name)}
+        onChangeText={(text) => setFieldValue(name, text)}
+        value={values[name]}
         width={width}
         {...otherProps}
-        // placeholder="Email"
-        // textContentType="emailAddress"
       />
       <ErrorMessage error={errors[name]} visible={touched[name]} />
     </>
   );
 }
+
+export default AppFormField;
