@@ -19,6 +19,9 @@
       "supportsTablet": true
     },
     "sdkVersion": "37.0.0",
-    "description": "A marketplace for selling the stuff you don't need anymore."
+    "description": "A marketplace for selling the stuff you don't need anymore.",
+    "notification": {
+      "iosDisplayInForeground": true
+    }
   }
 }
